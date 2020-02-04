@@ -1,4 +1,4 @@
-import React, { Component, lazy, Suspense } from 'react';
+import React, { lazy, Suspense } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 import Nav from '../Nav/Nav';
@@ -18,22 +18,18 @@ const AsyncMovie = lazy(() =>
   import('../../pages/MoviePage' /* webpackChunkName: "movie-page" */),
 );
 
-export default class App extends Component {
-  state = {};
+const App = () => (
+  <>
+    <Nav />
+    <Suspense fallback={<Loader />}>
+      <Switch>
+        <Route path="/" exact component={AsyncHome} />
+        <Route path="/movies/:id" component={AsyncMovie} />
+        <Route path="/movies" component={AsyncMovies} />
+        <Route component={NotFoundPage} />
+      </Switch>
+    </Suspense>
+  </>
+);
 
-  render() {
-    return (
-      <>
-        <Nav />
-        <Suspense fallback={<Loader />}>
-          <Switch>
-            <Route path="/" exact component={AsyncHome} />
-            <Route path="/movies/:id" component={AsyncMovie} />
-            <Route path="/movies" component={AsyncMovies} />
-            <Route component={NotFoundPage} />
-          </Switch>
-        </Suspense>
-      </>
-    );
-  }
-}
+export default App;
