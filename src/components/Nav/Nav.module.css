@@ -1,0 +1,16 @@
+.Nav {
+  padding: 0;
+  list-style: none;
+  width: 200px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.Link {
+  text-decoration: none;
+  color: #000000;
+}
+
+.ActiveLink {
+  color: #fa8072;
+}
