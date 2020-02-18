@@ -1,20 +1,19 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
+
+import MovieFromList from '../MovieFromList/MovieFromList';
 
 const MoviesList = ({ movies, match, location }) => (
   <ul>
     {movies.map(movie => (
-      <li key={movie.id}>
-        <Link
-          to={{
-            pathname: `${match.path}/${movie.id}`,
-            state: { from: location },
-          }}
-        >
-          {movie.title}
-        </Link>
-      </li>
+      <MovieFromList
+        key={movie.id}
+        id={movie.id}
+        matchPath={match.path}
+        location={location}
+        title={movie.title}
+      />
     ))}
   </ul>
 );
@@ -27,7 +26,6 @@ MoviesList.propTypes = {
   movies: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
-      title: PropTypes.string.isRequired,
     }),
   ),
   match: PropTypes.shape({

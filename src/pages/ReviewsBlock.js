@@ -21,15 +21,15 @@ export default class ReviewsBlock extends Component {
     return reviews.length === 0 ? (
       <p>We don&apos;t have any reviews for this movie.</p>
     ) : (
-      <>
-        <ul>
-          {reviews.map(review => (
-            <li key={review.id}>
-              <Review author={review.author} text={review.content} />
-            </li>
-          ))}
-        </ul>
-      </>
+      <ul>
+        {reviews.map(review => (
+          <Review
+            key={review.id}
+            author={review.author}
+            text={review.content}
+          />
+        ))}
+      </ul>
     );
   }
 }
