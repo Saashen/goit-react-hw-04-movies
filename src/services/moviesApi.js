@@ -3,6 +3,9 @@ import axios from 'axios';
 const BASE_URL = 'https://api.themoviedb.org/3/';
 const KEY = 'api_key=d837650e38cd3d8ec3d800ea1a83851c';
 
+export const movieImg = 'https://image.tmdb.org/t/p/w1280';
+export const castImg = 'https://image.tmdb.org/t/p/w1280/';
+
 export const fetchTrendingMovies = () =>
   axios.get(`${BASE_URL}movie/popular?${KEY}&language=en-US&page=1`);
 export const fetchMoviesSearch = search =>

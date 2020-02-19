@@ -6,33 +6,35 @@ import CastCharacter from '../components/CastCharacter/CastCharacter';
 const getIdFromProps = props => props.match.params.id;
 
 export default class CastBlock extends Component {
-  state = { cast: null };
+  state = { cast: null, error: null };
 
   componentDidMount() {
     const id = getIdFromProps(this.props);
     moviesAPI
       .fetchMoviesCredits(id)
       .then(({ data }) => this.setState({ cast: data.cast }))
-      .catch(error => console.log(error.message));
+      .catch(error => this.setState({ error: error.message }));
   }
 
   render() {
-    const { cast } = this.state;
+    const { cast, error } = this.state;
 
     return (
-      cast && (
-        <ul>
-          {cast.map(person => (
-            <li key={person.id}>
+      <>
+        {error && <h1>{error}</h1>}
+        {cast && (
+          <ul>
+            {cast.map(person => (
               <CastCharacter
+                key={person.id}
                 name={person.name}
                 character={person.character}
                 img={person.profile_path}
               />
-            </li>
-          ))}
-        </ul>
-      )
+            ))}
+          </ul>
+        )}
+      </>
     );
   }
 }

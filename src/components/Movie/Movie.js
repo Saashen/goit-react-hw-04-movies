@@ -2,10 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Movie.module.css';
 
+import * as moviesAPI from '../../services/moviesApi';
+
 const Movie = ({ movie }) => (
   <>
     <img
-      src={`https://image.tmdb.org/t/p/w1280${movie.poster_path}`}
+      src={moviesAPI.movieImg + movie.poster_path}
       alt={movie.title}
       className={styles.Image}
     />

@@ -2,16 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './CastCharacter.module.css';
 
+import * as moviesAPI from '../../services/moviesApi';
+
 const CastCharacter = ({ name, character, img }) => (
-  <>
-    <img
-      src={`https://image.tmdb.org/t/p/w1280/${img}`}
-      alt={name}
-      className={styles.Image}
-    />
+  <li>
+    <img src={moviesAPI.castImg + img} alt={name} className={styles.Image} />
     <p>{name}</p>
     <p>Character: {character}</p>
-  </>
+  </li>
 );
 
 CastCharacter.defaultProps = {
