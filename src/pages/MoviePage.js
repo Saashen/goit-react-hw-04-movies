@@ -59,7 +59,11 @@ export default class MoviePage extends Component {
     const url = getUrlFromProps(this.props);
     const { movie } = this.state;
     const { location } = this.props;
-    const locationToGet = location.state.from;
+
+    let locationToGet = null;
+    if (location.state) {
+      locationToGet = location.state.from;
+    }
 
     return (
       <>
