@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from 'react';
+import React, { Suspense } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 import Nav from '../Nav/Nav';
@@ -6,26 +6,16 @@ import Loader from '../Loader/Loader';
 
 import NotFoundPage from '../../pages/NotFoundPage';
 
-const AsyncHome = lazy(() =>
-  import('../../pages/HomePage' /* webpackChunkName: "home-page" */),
-);
-
-const AsyncMovies = lazy(() =>
-  import('../../pages/MoviesPage' /* webpackChunkName: "movies-page" */),
-);
-
-const AsyncMovie = lazy(() =>
-  import('../../pages/MoviePage' /* webpackChunkName: "movie-page" */),
-);
+import * as router from '../../services/routes';
 
 const App = () => (
   <>
     <Nav />
     <Suspense fallback={<Loader />}>
       <Switch>
-        <Route path="/" exact component={AsyncHome} />
-        <Route path="/movies/:id" component={AsyncMovie} />
-        <Route path="/movies" component={AsyncMovies} />
+        {router.routes.map(route => (
+          <Route key={route.path} {...route} />
+        ))}
         <Route component={NotFoundPage} />
       </Switch>
     </Suspense>
