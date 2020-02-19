@@ -58,6 +58,8 @@ export default class MoviePage extends Component {
     const path = getPathFromProps(this.props);
     const url = getUrlFromProps(this.props);
     const { movie } = this.state;
+    const { location } = this.props;
+    const locationToGet = location.state.from;
 
     return (
       <>
@@ -69,10 +71,24 @@ export default class MoviePage extends Component {
           <p>Additional information</p>
           <ul>
             <li>
-              <Link to={`${url}/cast`}>Cast</Link>
+              <Link
+                to={{
+                  pathname: `${url}/cast`,
+                  state: { from: locationToGet },
+                }}
+              >
+                Cast
+              </Link>
             </li>
             <li>
-              <Link to={`${url}/reviews`}>Reviews</Link>
+              <Link
+                to={{
+                  pathname: `${url}/reviews`,
+                  state: { from: locationToGet },
+                }}
+              >
+                Reviews
+              </Link>
             </li>
           </ul>
         </div>

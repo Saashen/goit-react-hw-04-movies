@@ -18,6 +18,7 @@ export default class CastBlock extends Component {
 
   render() {
     const { cast } = this.state;
+
     return (
       cast && (
         <ul>
