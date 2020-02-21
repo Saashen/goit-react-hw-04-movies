@@ -6,7 +6,7 @@ import Loader from '../Loader/Loader';
 
 import NotFoundPage from '../../pages/NotFoundPage';
 
-import * as router from '../../services/routes';
+import * as router from '../../services/router';
 
 const App = () => (
   <>

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 // Services
 import * as moviesAPI from '../services/moviesApi';
+import { CAST, REVIEWS } from '../services/router';
 
 // Components
 import Loader from '../components/Loader/Loader';
@@ -77,7 +78,7 @@ export default class MoviePage extends Component {
             <li>
               <Link
                 to={{
-                  pathname: `${url}/cast`,
+                  pathname: url + CAST,
                   state: { from: locationToGet },
                 }}
               >
@@ -87,7 +88,7 @@ export default class MoviePage extends Component {
             <li>
               <Link
                 to={{
-                  pathname: `${url}/reviews`,
+                  pathname: url + REVIEWS,
                   state: { from: locationToGet },
                 }}
               >
@@ -98,8 +99,8 @@ export default class MoviePage extends Component {
         </div>
         <Suspense fallback={<Loader />}>
           <Switch>
-            <Route path={`${path}/cast`} component={AsyncCast} />
-            <Route path={`${path}/reviews`} component={AsyncReviews} />
+            <Route path={path + CAST} component={AsyncCast} />
+            <Route path={path + REVIEWS} component={AsyncReviews} />
           </Switch>
         </Suspense>
       </>
