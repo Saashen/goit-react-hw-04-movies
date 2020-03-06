@@ -1,4 +1,164 @@
+@value headers-font, regular-font, main-color from '../../variables.module.css';
+
+.Movie {
+  width: 1060px;
+  min-height: 450px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  /* align-items: center; */
+}
+
 .Image {
   width: 300px;
   height: auto;
+  cursor: zoom-in;
+}
+
+.MovieInfo {
+  width: 720px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.Description {
+  font-family: regular-font;
+  font-size: 17px;
+  line-height: 150%;
+}
+
+.Title {
+  font-family: headers-font;
+  font-size: 30px;
+  font-weight: 700;
+  color: main-color;
+  padding: 30px 0 10px;
+  line-height: 150%;
+}
+
+.DescriptionPoint {
+  padding: 8px 0;
+}
+
+.Bold {
+  font-weight: bold;
+  color: main-color;
+}
+
+.Additional {
+  width: 720px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-family: regular-font;
+  font-size: 17px;
+  line-height: 150%;
+}
+
+.AddInfo {
+  composes: Bold;
+}
+
+.Link {
+  color: #000000;
+}
+
+.Button {
+  font-family: regular-font;
+  font-weight: 700;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 255);
+  text-align: center;
+  text-transform: uppercase;
+  width: 140px;
+  height: 40px;
+  background-color: main-color;
+  border-style: none;
+  cursor: pointer;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .Movie {
+    width: 300px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    min-height: 0;
+  }
+
+  .Image {
+    width: 280px;
+    min-height: unset;
+    margin: 0 auto;
+  }
+
+  .Description {
+    width: 300px;
+  }
+
+  .Title {
+    text-align: center;
+  }
+
+  .Additional {
+    width: 300px;
+    flex-wrap: wrap;
+  }
+
+  .Button {
+    width: 300px;
+    margin-top: 10px;
+    order: 1;
+  }
+
+  .CastReviewsLinks {
+    order: 2;
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1189px) {
+  .Movie {
+    width: 720px;
+    min-height: unset;
+    margin-top: 20px;
+  }
+
+  .Image {
+    width: 250px;
+  }
+
+  .Title {
+    padding: 6px 0;
+    font-size: 26px;
+  }
+
+  .MovieInfo {
+    width: 460px;
+  }
+
+  .Description {
+    font-size: 16px;
+  }
+
+  .Additional {
+    width: 460px;
+    font-size: 16px;
+  }
+
+  .DescriptionPoint {
+    padding: 4px 0;
+  }
+
+  .CastReviewsLinks {
+    width: 290px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
 }

@@ -1,0 +1,20 @@
+@value regular-font from '../../variables.module.css';
+
+.Message {
+  width: 1060px;
+  margin: 30px auto;
+  font-family: regular-font;
+  text-align: center;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .Message {
+    width: 300px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1189px) {
+  .Message {
+    width: 750px;
+  }
+}

@@ -1,19 +1,25 @@
 import React, { Component } from 'react';
 import * as moviesAPI from '../services/moviesApi';
 
-import CastCharacter from '../components/CastCharacter/CastCharacter';
+import CastList from '../components/CastList/CastList';
 
 const getIdFromProps = props => props.match.params.id;
 
 export default class CastBlock extends Component {
   state = { cast: null, error: null };
 
-  componentDidMount() {
+  async componentDidMount() {
     const id = getIdFromProps(this.props);
-    moviesAPI
+
+    await moviesAPI
       .fetchMoviesCredits(id)
       .then(({ data }) => this.setState({ cast: data.cast }))
       .catch(error => this.setState({ error: error.message }));
+
+    window.scrollTo({
+      top: 500,
+      behavior: 'smooth',
+    });
   }
 
   render() {
@@ -22,18 +28,7 @@ export default class CastBlock extends Component {
     return (
       <>
         {error && <h1>{error}</h1>}
-        {cast && (
-          <ul>
-            {cast.map(person => (
-              <CastCharacter
-                key={person.id}
-                name={person.name}
-                character={person.character}
-                img={person.profile_path}
-              />
-            ))}
-          </ul>
-        )}
+        {cast && <CastList id="cast" cast={cast} />}
       </>
     );
   }

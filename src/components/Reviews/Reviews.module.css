@@ -1,0 +1,18 @@
+@value main-color, regular-font from '../../variables.module.css';
+
+.Reviews {
+  width: 1060px;
+  margin: 30px auto;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .Reviews {
+    width: 300px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1189px) {
+  .Reviews {
+    width: 750px;
+  }
+}

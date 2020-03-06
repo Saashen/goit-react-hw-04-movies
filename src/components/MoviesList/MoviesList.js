@@ -1,11 +1,12 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import styles from './MoviesList.module.css';
 
 import MovieFromList from '../MovieFromList/MovieFromList';
 
 const MoviesList = ({ movies, match, location }) => (
-  <ul>
+  <ul className={styles.MoviesList}>
     {movies.map(movie => (
       <MovieFromList
         key={movie.id}
@@ -13,6 +14,7 @@ const MoviesList = ({ movies, match, location }) => (
         matchPath={match.path}
         location={location}
         title={movie.title}
+        image={movie.poster_path}
       />
     ))}
   </ul>

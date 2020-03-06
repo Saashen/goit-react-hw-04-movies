@@ -1,0 +1,22 @@
+@value main-color, regular-font from '../../variables.module.css';
+
+.Review {
+  font-family: regular-font;
+  font-size: 17px;
+  line-height: 150%;
+  margin-bottom: 20px;
+}
+
+.Label {
+  color: main-color;
+}
+
+@media (min-width: 768px) and (max-width: 1189px) {
+  .Review {
+    font-size: 16px;
+  }
+
+  .Author {
+    font-size: 16px;
+  }
+}

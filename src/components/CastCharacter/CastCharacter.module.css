@@ -1,3 +1,51 @@
+@value main-color, regular-font from '../../variables.module.css';
+
+.Character {
+  width: 132px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  margin-bottom: 10px;
+  font-family: regular-font;
+}
+
 .Image {
-  width: 100px;
+  width: 110px;
+  height: 165px;
+  justify-self: center;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.Naming {
+  text-align: center;
+  word-wrap: break-word;
+}
+
+.CharacterSpan {
+  composes: Naming;
+  color: main-color;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .Character {
+    width: 145px;
+    margin: 0 auto 10px;
+  }
+
+  .Image {
+    width: 130px;
+    height: 195px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1189px) {
+  .Character {
+    width: 136px;
+    margin: 0 auto 10px;
+  }
+
+  .Image {
+    width: 124px;
+  }
 }

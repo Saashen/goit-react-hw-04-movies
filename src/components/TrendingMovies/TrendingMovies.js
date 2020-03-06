@@ -1,20 +1,24 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
-
+import styles from './TrendingMovies.module.css';
 import TrendingMovie from '../TrendingMovie/TrendingMovie';
 
 const TrendingMovies = ({ items, location }) => (
-  <ul>
-    {items.map(item => (
-      <TrendingMovie
-        key={item.id}
-        id={item.id}
-        title={item.title}
-        location={location}
-      />
-    ))}
-  </ul>
+  <>
+    <h2 className={styles.Header}>Trending today</h2>
+    <ul className={styles.MoviesList}>
+      {items.map(item => (
+        <TrendingMovie
+          key={item.id}
+          id={item.id}
+          title={item.title}
+          location={location}
+          image={item.poster_path}
+        />
+      ))}
+    </ul>
+  </>
 );
 
 TrendingMovies.propTypes = {

@@ -1,16 +1,48 @@
+@value main-color, headers-font from '../../variables.module.css';
+
+.NavContainer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
 .Nav {
-  padding: 0;
-  list-style: none;
   width: 200px;
   display: flex;
   justify-content: space-around;
+  list-style: none;
+}
+
+.NavLi {
+  font-family: headers-font;
+  font-size: 20px;
+  border-bottom: 2px solid transparent;
+}
+
+.NavLi:hover .Link {
+  color: main-color;
 }
 
 .Link {
+  display: block;
   text-decoration: none;
+  text-align: center;
   color: #000000;
+  padding-bottom: 4px;
 }
 
 .ActiveLink {
-  color: #fa8072;
+  composes: Link;
+  color: main-color;
+  border-bottom: 2px solid main-color;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .NavContainer {
+    justify-content: center;
+  }
+
+  .NavLi {
+    font-size: 24px;
+  }
 }

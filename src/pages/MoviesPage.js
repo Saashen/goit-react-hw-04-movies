@@ -5,6 +5,8 @@ import * as moviesAPI from '../services/moviesApi';
 
 import MoviesSearch from '../components/MoviesSearch/MoviesSearch';
 import MoviesList from '../components/MoviesList/MoviesList';
+import NoMovies from '../components/NoMovies/NoMovies';
+import Loader from '../components/Loader/Loader';
 
 const getQueryFromProps = props =>
   queryString.parse(props.location.search).query;
@@ -12,6 +14,8 @@ const getQueryFromProps = props =>
 export default class MoviesPage extends Component {
   state = {
     movies: [],
+    isEmpty: false,
+    isLoading: false,
   };
 
   static propTypes = {
@@ -51,19 +55,29 @@ export default class MoviesPage extends Component {
   };
 
   loadMovies = query => {
+    this.setState({ isLoading: true });
     moviesAPI
       .fetchMoviesSearch(query)
-      .then(({ data }) => this.setState({ movies: data.results }))
-      .catch(error => console.log(error));
+      .then(({ data }) =>
+        this.setState({
+          movies: data.results,
+          isEmpty: this.checkIsEmpty(data.results),
+        }),
+      )
+      .catch(error => console.log(error))
+      .finally(() => this.setState({ isLoading: false }));
   };
 
+  checkIsEmpty = movies => movies.length === 0 && true;
+
   render() {
-    const { movies } = this.state;
+    const { movies, isEmpty, isLoading } = this.state;
 
     return (
       <>
         <MoviesSearch onSearch={this.handleMoviesSearch} />
-        {movies.length > 0 && <MoviesList movies={movies} />}
+        {isLoading && <Loader />}
+        {isEmpty ? <NoMovies /> : <MoviesList movies={movies} />}
       </>
     );
   }

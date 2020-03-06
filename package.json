@@ -1,9 +1,10 @@
 {
-  "name": "goit-react-hw-02-reader",
+  "name": "goit-react-hw-04-movies",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "axios": "^0.19.2",
+    "basiclightbox": "^5.0.2",
     "gh-pages": "^2.1.1",
     "prop-types": "^15.7.2",
     "query-string": "^6.10.1",

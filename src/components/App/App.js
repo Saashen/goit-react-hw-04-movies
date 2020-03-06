@@ -5,11 +5,11 @@ import Nav from '../Nav/Nav';
 import Loader from '../Loader/Loader';
 
 import NotFoundPage from '../../pages/NotFoundPage';
-
 import * as router from '../../services/router';
+import styles from './App.module.css';
 
 const App = () => (
-  <>
+  <div className={styles.App}>
     <Nav />
     <Suspense fallback={<Loader />}>
       <Switch>
@@ -19,7 +19,7 @@ const App = () => (
         <Route component={NotFoundPage} />
       </Switch>
     </Suspense>
-  </>
+  </div>
 );
 
 export default App;

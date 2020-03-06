@@ -1,0 +1,129 @@
+@value main-color, regular-font from '../../variables.module.css';
+
+.Movie {
+  position: relative;
+}
+
+.Poster {
+  width: 110px;
+  height: 165px;
+  justify-self: center;
+  object-fit: cover;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.HoverBlock {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 110px;
+  height: 165px;
+  background-color: rgba(0, 0, 0, 0);
+  color: rgba(255, 255, 255, 0);
+  font-family: regular-font;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.Movie:hover .HoverBlock {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: rgba(255, 255, 255, 1);
+  transition: all 0.5s ease 0s;
+}
+
+.Movie:hover .Poster,
+.HoverBlock {
+  transform: scale(1.03);
+}
+
+.HoverTitle {
+  width: 110px;
+  text-align: center;
+  word-wrap: break-word;
+}
+
+.NoImage {
+  width: 110px;
+  justify-self: center;
+  object-fit: cover;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.NoImageTitle {
+  display: none;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .Poster,
+  .NoImage {
+    width: 145px;
+    height: 217px;
+  }
+
+  .HoverBlock,
+  .HoverTitle {
+    display: none;
+  }
+
+  .HoverBlockMedia {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: flex-end;
+    width: 145px;
+    height: 217px;
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+  .HoverTitleMedia {
+    composes: HoverTitle;
+    display: block;
+    width: 145px;
+    color: rgb(255, 255, 255);
+    font-family: regular-font;
+    padding-bottom: 6px;
+  }
+}
+
+@media (min-width: 1023px) {
+  .HoverBlockMedia,
+  .HoverTitleMedia {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1189px) {
+  .Poster,
+  .NoImage {
+    width: 142px;
+    height: 213px;
+  }
+
+  .HoverBlock,
+  .HoverTitle {
+    display: none;
+  }
+
+  .HoverBlockMedia {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: flex-end;
+    width: 142px;
+    height: 213px;
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+  .HoverTitleMedia {
+    composes: HoverTitle;
+    display: block;
+    width: 142px;
+    color: rgb(255, 255, 255);
+    font-family: regular-font;
+    padding-bottom: 6px;
+  }
+}

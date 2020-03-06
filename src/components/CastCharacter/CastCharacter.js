@@ -4,22 +4,30 @@ import styles from './CastCharacter.module.css';
 
 import * as moviesAPI from '../../services/moviesApi';
 
+const noImage = require('../../img/no-image.jpg');
+
 const CastCharacter = ({ name, character, img }) => (
-  <li>
-    <img src={moviesAPI.castImg + img} alt={name} className={styles.Image} />
-    <p>{name}</p>
-    <p>Character: {character}</p>
+  <li className={styles.Character}>
+    <img
+      src={img !== null ? moviesAPI.castImg + img : noImage}
+      alt={name}
+      className={styles.Image}
+    />
+    <span className={styles.Naming}>{name}</span>
+    <span className={styles.CharacterSpan}>Character:</span>
+    <span className={styles.Naming}>{character}</span>
   </li>
 );
 
 CastCharacter.defaultProps = {
   character: '',
+  img: null,
 };
 
 CastCharacter.propTypes = {
   name: PropTypes.string.isRequired,
   character: PropTypes.string,
-  img: PropTypes.string.isRequired,
+  img: PropTypes.string,
 };
 
 export default CastCharacter;

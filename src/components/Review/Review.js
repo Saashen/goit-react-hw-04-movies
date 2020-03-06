@@ -1,9 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './Review.module.css';
 
 const Review = ({ author, text }) => (
-  <li>
-    <h3>Author: {author}</h3>
+  <li className={styles.Review}>
+    <h3 className={styles.Author}>
+      <span className={styles.Label}>Author: </span>
+      {author}
+    </h3>
     <p>{text}</p>
   </li>
 );

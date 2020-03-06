@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import styles from './MoviesSearch.module.css';
 
 export default class MoviesSearch extends Component {
   state = { query: '' };
@@ -22,15 +23,18 @@ export default class MoviesSearch extends Component {
   render() {
     const { query } = this.state;
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form className={styles.SearchMovie} onSubmit={this.handleSubmit}>
         <input
+          className={styles.SearchInput}
           type="text"
           onChange={this.handleChange}
           value={query}
           autoComplete="off"
           placeholder="Search..."
         />
-        <button type="submit">Submit</button>
+        <button className={styles.SearchButton} type="submit">
+          <span className={styles.SearchButtonLabel}>Submit</span>
+        </button>
       </form>
     );
   }

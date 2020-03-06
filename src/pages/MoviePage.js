@@ -1,5 +1,5 @@
 import React, { Component, lazy, Suspense } from 'react';
-import { Route, Link, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 // Services
@@ -20,7 +20,6 @@ const AsyncReviews = lazy(() =>
 
 const getIdFromProps = props => props.match.params.id;
 const getPathFromProps = props => props.match.path;
-const getUrlFromProps = props => props.match.url;
 
 export default class MoviePage extends Component {
   state = { movie: null };
@@ -57,46 +56,13 @@ export default class MoviePage extends Component {
 
   render() {
     const path = getPathFromProps(this.props);
-    const url = getUrlFromProps(this.props);
     const { movie } = this.state;
-    const { location } = this.props;
-
-    let locationToGet = null;
-    if (location.state) {
-      locationToGet = location.state.from;
-    }
 
     return (
       <>
-        <button type="button" onClick={this.handleReturn}>
-          Go back
-        </button>
-        {movie && <Movie movie={movie} onReturn={this.handleReturn} />}
-        <div>
-          <p>Additional information</p>
-          <ul>
-            <li>
-              <Link
-                to={{
-                  pathname: url + CAST,
-                  state: { from: locationToGet },
-                }}
-              >
-                Cast
-              </Link>
-            </li>
-            <li>
-              <Link
-                to={{
-                  pathname: url + REVIEWS,
-                  state: { from: locationToGet },
-                }}
-              >
-                Reviews
-              </Link>
-            </li>
-          </ul>
-        </div>
+        {movie && (
+          <Movie id="movie" movie={movie} onReturn={this.handleReturn} />
+        )}
         <Suspense fallback={<Loader />}>
           <Switch>
             <Route path={path + CAST} component={AsyncCast} />

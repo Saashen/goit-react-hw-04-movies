@@ -1,0 +1,18 @@
+.CastBlock {
+  width: 1060px;
+  margin: 30px auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .CastBlock {
+    width: 300px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1189px) {
+  .CastBlock {
+    width: 720px;
+  }
+}
