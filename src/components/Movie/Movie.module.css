@@ -2,12 +2,14 @@
 
 .Movie {
   width: 1060px;
-  min-height: 450px;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  /* align-items: center; */
+}
+
+.ImageContainer {
+  margin: 0 auto;
 }
 
 .Image {
@@ -90,7 +92,6 @@
 
   .Image {
     width: 280px;
-    min-height: unset;
     margin: 0 auto;
   }
 

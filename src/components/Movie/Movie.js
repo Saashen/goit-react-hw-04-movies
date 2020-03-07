@@ -34,16 +34,19 @@ const Movie = ({ movie, onReturn, location, match }) => {
 
   return (
     <div className={styles.Movie}>
-      <img
-        src={
-          movie.poster_path !== null
-            ? moviesAPI.movieImg + movie.poster_path
-            : noImage
-        }
-        alt={movie.title}
-        className={styles.Image}
-        onClick={instance.show}
-      />
+      <div className={styles.ImageContainer}>
+        <img
+          src={
+            movie.poster_path !== null
+              ? moviesAPI.movieImg + movie.poster_path
+              : noImage
+          }
+          alt={movie.title}
+          className={styles.Image}
+          onClick={instance.show}
+        />
+      </div>
+
       <div className={styles.MovieInfo}>
         <ul className={styles.Description}>
           <li className={styles.Title}>{movie.title}</li>
@@ -60,6 +63,7 @@ const Movie = ({ movie, onReturn, location, match }) => {
             {movie.overview}
           </li>
         </ul>
+
         <div className={styles.Additional}>
           <ul className={styles.CastReviewsLinks}>
             <li className={styles.AddInfo}>Additional information:</li>
