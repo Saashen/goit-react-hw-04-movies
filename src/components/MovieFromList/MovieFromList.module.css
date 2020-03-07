@@ -2,6 +2,8 @@
 
 .Movie {
   position: relative;
+  font-family: regular-font;
+  color: #000000;
 }
 
 .Poster {
