@@ -1,3 +1,5 @@
-1. Change name in package.json.
-2. Add ("homepage": "https://saashen.github.io/repositoty") in package.json.
-3. Rename title in index.html.
+#Movie to Watch
+
+**Link:** saashen-hw-04-movies.netlify.app
+**Stack:** React, React Router
+**Description:** It is a movie search app with complex rooting.
