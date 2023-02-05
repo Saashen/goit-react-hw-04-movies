@@ -1,12 +1,17 @@
+@value dark-color, headers-font from '../../variables.module.css';
+
 .Header {
-  margin-top: 20px;
+  margin-top: 1.6rem;
   text-align: center;
-  font-family: 'Spartan', sans-serif;
+  font-family: headers-font;
+  text-transform: uppercase;
+  color: dark-color;
+  font-size: 2rem;
 }
 
 .MoviesList {
   display: inline-grid;
-  grid-template-columns: repeat(10, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-column-gap: 10px;
   grid-row-gap: 10px;
   margin-top: 40px;

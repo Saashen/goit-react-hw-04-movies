@@ -1,4 +1,4 @@
-@value headers-font, regular-font, main-color from '../../variables.module.css';
+@value headers-font, regular-font, accent-color from '../../variables.module.css';
 
 .Movie {
   width: 1060px;
@@ -36,7 +36,7 @@
   font-family: headers-font;
   font-size: 30px;
   font-weight: 700;
-  color: main-color;
+  color: accent-color;
   padding: 30px 0 10px;
   line-height: 150%;
 }
@@ -47,7 +47,7 @@
 
 .Bold {
   font-weight: bold;
-  color: main-color;
+  color: accent-color;
 }
 
 .Additional {
@@ -77,9 +77,16 @@
   text-transform: uppercase;
   width: 140px;
   height: 40px;
-  background-color: main-color;
+  background-color: accent-color;
   border-style: none;
   cursor: pointer;
+  border-radius: 0.1rem;
+  transition: all 0.2s ease-in-out;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.Button:hover {
+  transform: scale(1.1);
 }
 
 @media (min-width: 320px) and (max-width: 767px) {

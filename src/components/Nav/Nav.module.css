@@ -1,9 +1,9 @@
-@value main-color, headers-font from '../../variables.module.css';
+@value accent-color, dark-color, additional-accent-color, headers-font from '../../variables.module.css';
 
 .NavContainer {
   display: flex;
   justify-content: flex-end;
-  margin-top: 10px;
+  margin-top: 1.6rem;
 }
 
 .Nav {
@@ -19,22 +19,32 @@
   border-bottom: 2px solid transparent;
 }
 
-.NavLi:hover .Link {
-  color: main-color;
-}
-
 .Link {
   display: block;
   text-decoration: none;
   text-align: center;
-  color: #000000;
-  padding-bottom: 4px;
+  color: dark-color;
+  padding: 0.5rem 0.8rem;
+  border-radius: 0.1rem;
+  transition: all 0.2s ease-in-out;
 }
 
 .ActiveLink {
   composes: Link;
-  color: main-color;
-  border-bottom: 2px solid main-color;
+  color: additional-accent-color;
+  background-color: accent-color;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 0.1rem;
+}
+
+.NavLi:hover .Link {
+  color: accent-color;
+  transform: scale(1.1);
+}
+
+.NavLi:hover .ActiveLink {
+  color: additional-accent-color;
+  transform: scale(1);
 }
 
 @media (min-width: 320px) and (max-width: 767px) {

@@ -1,3 +1,5 @@
-@value main-color: #fa8072;
-@value headers-font: 'Spartan', sans-serif;
-@value regular-font: 'Quicksand', sans-serif;
+@value accent-color: #ff6b35;
+@value additional-accent-color: #fff8f5;
+@value dark-color: #041348;
+@value headers-font: 'Cinzel', serif;
+@value regular-font: 'Fauna One', serif;
