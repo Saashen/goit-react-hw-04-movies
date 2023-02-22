@@ -1,4 +1,4 @@
-@value headers-font, regular-font, accent-color from '../../variables.module.css';
+@value headers-font, regular-font, accent-color, second-accent-color, second-font from '../../variables.module.css';
 
 .Movie {
   width: 1060px;
@@ -8,14 +8,16 @@
   justify-content: space-between;
 }
 
-.ImageContainer {
-  margin: 0 auto;
-}
-
 .Image {
   width: 300px;
   height: auto;
   cursor: zoom-in;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.Image:hover {
+  transform: scale(1.03);
+  transition: all 0.5s ease 0s;
 }
 
 .MovieInfo {
@@ -46,8 +48,9 @@
 }
 
 .Bold {
-  font-weight: bold;
-  color: accent-color;
+  font-family: second-font;
+  font-weight: 700;
+  color: second-accent-color;
 }
 
 .Additional {
@@ -69,7 +72,8 @@
 }
 
 .Button {
-  font-family: regular-font;
+  font-family: second-font;
+  letter-spacing: 0.1rem;
   font-weight: 700;
   font-size: 14px;
   color: rgba(255, 255, 255, 255);

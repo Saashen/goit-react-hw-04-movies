@@ -4,7 +4,7 @@ import styles from './CastCharacter.module.css';
 
 import * as moviesAPI from '../../services/moviesApi';
 
-const noImage = require('../../img/no-image.jpg');
+const noImage = require('../../img/no-image1.jpg');
 
 const CastCharacter = ({ name, character, img }) => (
   <li className={styles.Character}>
@@ -13,8 +13,7 @@ const CastCharacter = ({ name, character, img }) => (
       alt={name}
       className={styles.Image}
     />
-    <span className={styles.Naming}>{name}</span>
-    <span className={styles.CharacterSpan}>Character:</span>
+    <span className={styles.CharacterSpan}>{name}</span>
     <span className={styles.Naming}>{character}</span>
   </li>
 );

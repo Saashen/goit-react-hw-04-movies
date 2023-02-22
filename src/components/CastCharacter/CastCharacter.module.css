@@ -1,4 +1,4 @@
-@value accent-color, regular-font from '../../variables.module.css';
+@value accent-color, regular-font, second-accent-color, second-font from '../../variables.module.css';
 
 .Character {
   width: 132px;
@@ -24,7 +24,9 @@
 
 .CharacterSpan {
   composes: Naming;
-  color: accent-color;
+  font-family: second-font;
+  font-weight: bold;
+  color: second-accent-color;
 }
 
 @media (min-width: 320px) and (max-width: 767px) {

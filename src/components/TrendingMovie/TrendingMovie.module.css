@@ -1,4 +1,4 @@
-@value accent-color, additional-accent-color, regular-font, headers-font from '../../variables.module.css';
+@value accent-color, accent-color-light, regular-font, headers-font from '../../variables.module.css';
 
 .TrendingMovie {
   position: relative;
@@ -31,7 +31,7 @@
 
 .TrendingMovie:hover .HoverBlock {
   background-color: rgba(0, 0, 0, 0.7);
-  color: additional-accent-color;
+  color: accent-color-light;
   transition: all 0.5s ease 0s;
 }
 

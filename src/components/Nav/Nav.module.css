@@ -1,4 +1,4 @@
-@value accent-color, dark-color, additional-accent-color, headers-font from '../../variables.module.css';
+@value accent-color, dark-color, accent-color-light, second-font from '../../variables.module.css';
 
 .NavContainer {
   display: flex;
@@ -14,7 +14,7 @@
 }
 
 .NavLi {
-  font-family: headers-font;
+  font-family: second-font;
   font-size: 20px;
   border-bottom: 2px solid transparent;
 }
@@ -31,7 +31,7 @@
 
 .ActiveLink {
   composes: Link;
-  color: additional-accent-color;
+  color: accent-color-light;
   background-color: accent-color;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   border-radius: 0.1rem;
@@ -43,7 +43,7 @@
 }
 
 .NavLi:hover .ActiveLink {
-  color: additional-accent-color;
+  color: accent-color-light;
   transform: scale(1);
 }
 

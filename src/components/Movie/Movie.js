@@ -34,7 +34,7 @@ const Movie = ({ movie, onReturn, location, match }) => {
 
   return (
     <div className={styles.Movie}>
-      <div className={styles.ImageContainer}>
+      <div>
         <img
           src={
             movie.poster_path !== null
@@ -52,7 +52,7 @@ const Movie = ({ movie, onReturn, location, match }) => {
           <li className={styles.Title}>{movie.title}</li>
           <li className={styles.DescriptionPoint}>
             <span className={styles.Bold}>User score: </span>
-            {movie.vote_average * 10}%
+            {movie.vote_average.toFixed(2)} / 10
           </li>
           <li className={styles.DescriptionPoint}>
             <span className={styles.Bold}>Genres: </span>

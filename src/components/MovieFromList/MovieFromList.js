@@ -5,8 +5,6 @@ import PropTypes from 'prop-types';
 import styles from './MovieFromList.module.css';
 import * as moviesAPI from '../../services/moviesApi';
 
-const noImage = require('../../img/no-image.jpg');
-
 const MovieFromList = ({ id, matchPath, location, title, image }) => (
   <li>
     <Link
@@ -17,7 +15,7 @@ const MovieFromList = ({ id, matchPath, location, title, image }) => (
       }}
     >
       <img
-        src={image !== null ? moviesAPI.movieImg + image : noImage}
+        src={image !== null ? moviesAPI.movieImg + image : ''}
         alt={title}
         className={image !== null ? styles.Poster : styles.NoImage}
       />
