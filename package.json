@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.19.2",
     "basiclightbox": "^5.0.2",
+    "country-flag-icons": "^1.5.7",
     "gh-pages": "^2.1.1",
     "prop-types": "^15.7.2",
     "query-string": "^6.10.1",

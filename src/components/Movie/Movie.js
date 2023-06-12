@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import PropTypes from 'prop-types';
+import Flags from 'country-flag-icons/react/3x2';
 import { NavLink, withRouter } from 'react-router-dom';
 import * as basicLightbox from 'basiclightbox';
 
@@ -64,12 +65,23 @@ const Movie = ({ movie, onReturn, location, match }) => {
           </li>
           <li className={styles.DescriptionPoint}>
             <span className={styles.Bold}>Countries: </span>
-            {movie.production_countries.map(country => country.name).join(', ')}
+            {movie.production_countries.map(country => {
+              const Flag = Flags[country.iso_3166_1];
+              return (
+                <Flag
+                  key={country.iso_3166_1}
+                  countryCode={country.iso_3166_1}
+                  className={styles.FlagContainer}
+                />
+              );
+            })}
           </li>
-          <li className={styles.DescriptionPoint}>
-            <span className={styles.Bold}>Tagline: </span>
-            {movie.tagline}
-          </li>
+          {movie.tagline !== '' && (
+            <li className={styles.DescriptionPoint}>
+              <span className={styles.Bold}>Slogan: </span>
+              {movie.tagline}
+            </li>
+          )}
           <li className={styles.DescriptionPoint}>
             <span className={styles.Bold}>Overview: </span>
             {movie.overview}
@@ -135,7 +147,7 @@ Movie.propTypes = {
     ).isRequired,
     production_countries: PropTypes.arrayOf(
       PropTypes.shape({
-        name: PropTypes.string.isRequired,
+        iso_3166_1: PropTypes.string.isRequired,
       }),
     ).isRequired,
   }),

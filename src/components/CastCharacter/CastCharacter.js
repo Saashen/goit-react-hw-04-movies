@@ -1,18 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Image } from 'react-feather';
+
 import styles from './CastCharacter.module.css';
-
 import * as moviesAPI from '../../services/moviesApi';
-
-const noImage = require('../../img/no-image1.jpg');
 
 const CastCharacter = ({ name, character, img }) => (
   <li className={styles.Character}>
-    <img
-      src={img !== null ? moviesAPI.castImg + img : noImage}
-      alt={name}
-      className={styles.Image}
-    />
+    {img ? (
+      <img src={moviesAPI.castImg + img} alt={name} className={styles.Image} />
+    ) : (
+      <div className={styles.NoImage}>
+        <Image color="#202020" size={35} />
+      </div>
+    )}
     <span className={styles.CharacterSpan}>{name}</span>
     <span className={styles.Naming}>{character}</span>
   </li>

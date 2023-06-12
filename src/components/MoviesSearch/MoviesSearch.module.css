@@ -16,7 +16,7 @@
   background-image: linear-gradient(to left, #743ad5, #d53a9d);
   cursor: pointer;
   outline: none;
-  border: none;
+  border: 1px solid #ffffff;
 }
 
 .SearchButton:hover {
@@ -29,10 +29,13 @@
   display: inline-block;
   font-family: second-font;
   font-size: 16px;
-  border: none;
+  border: 1px solid #ffffff;
+  border-right: none;
   outline: none;
   padding-left: 1rem;
   padding-right: 1rem;
+  background-color: #202020;
+  color: #ffffff;
 }
 
 .SearchInput::placeholder {

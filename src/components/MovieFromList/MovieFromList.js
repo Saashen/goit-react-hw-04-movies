@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { Image } from 'react-feather';
 
 import styles from './MovieFromList.module.css';
 import * as moviesAPI from '../../services/moviesApi';
@@ -14,11 +15,17 @@ const MovieFromList = ({ id, matchPath, location, title, image }) => (
         state: { from: location },
       }}
     >
-      <img
-        src={image !== null ? moviesAPI.movieImg + image : ''}
-        alt={title}
-        className={image !== null ? styles.Poster : styles.NoImage}
-      />
+      {image ? (
+        <img
+          src={moviesAPI.movieImg + image}
+          alt={title}
+          className={styles.Poster}
+        />
+      ) : (
+        <div className={styles.NoImage}>
+          <Image color="#202020" size={60} />
+        </div>
+      )}
       <div className={styles.HoverBlock}>
         <p className={styles.HoverTitle}>{title}</p>
       </div>

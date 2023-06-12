@@ -14,6 +14,15 @@
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.NoImage {
+  composes: Poster;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  border: 3px solid #202020;
+}
+
 .HoverBlock {
   position: absolute;
   top: 0;
@@ -46,13 +55,6 @@
   align-self: center;
   text-align: center;
   word-wrap: break-word;
-}
-
-.NoImage {
-  width: 110px;
-  justify-self: center;
-  object-fit: cover;
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .NoImageTitle {

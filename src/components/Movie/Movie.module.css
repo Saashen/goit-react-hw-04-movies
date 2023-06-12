@@ -105,6 +105,11 @@
   transform: scale(1);
 }
 
+.FlagContainer {
+  width: 1.4rem;
+  margin-right: 0.4rem;
+}
+
 .Button {
   font-family: regular-font;
   letter-spacing: 0.05rem;
