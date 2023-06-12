@@ -1,4 +1,4 @@
-@value accent-color, regular-font, second-accent-color, second-font from '../../variables.module.css';
+@value accent-color-light, regular-font, second-accent-color, second-font from '../../variables.module.css';
 
 .Character {
   width: 132px;
@@ -20,13 +20,15 @@
 .Naming {
   text-align: center;
   word-wrap: break-word;
+  color: accent-color-light;
+  padding-top: 0.2rem;
 }
 
 .CharacterSpan {
-  composes: Naming;
+  text-align: center;
+  word-wrap: break-word;
+  color: accent-color-light;
   font-family: second-font;
-  font-weight: bold;
-  color: second-accent-color;
 }
 
 @media (min-width: 320px) and (max-width: 767px) {

@@ -1,7 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@100&display=swap');
+
 @value accent-color: #ff6b35;
 @value accent-color-light: #fff8f5;
 @value second-accent-color: #000000;
 @value dark-color: #041348;
-@value headers-font: 'Cinzel', serif;
-@value second-font: 'Fauna One', serif;
-@value regular-font: 'Open Sans', sans-serif;
+@value headers-font: 'Bruno Ace SC', cursive;
+@value second-font: 'Roboto Flex', sans-serif;
+@value regular-font: 'Big Shoulders Display', cursive;
+@value black-background-color: #06191D;

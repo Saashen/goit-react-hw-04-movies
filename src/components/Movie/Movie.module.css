@@ -1,4 +1,4 @@
-@value headers-font, regular-font, accent-color, second-accent-color, second-font from '../../variables.module.css';
+@value headers-font, regular-font, accent-color, second-accent-color, second-font, accent-color-light from '../../variables.module.css';
 
 .Movie {
   width: 1060px;
@@ -6,6 +6,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  color: accent-color-light;
 }
 
 .Image {
@@ -29,7 +30,7 @@
 }
 
 .Description {
-  font-family: regular-font;
+  font-family: second-font;
   font-size: 17px;
   line-height: 150%;
 }
@@ -38,7 +39,9 @@
   font-family: headers-font;
   font-size: 30px;
   font-weight: 700;
-  color: accent-color;
+  background-image: linear-gradient(to left, #743ad5, #d53a9d);
+  background-clip: text;
+  color: transparent;
   padding: 30px 0 10px;
   line-height: 150%;
 }
@@ -48,9 +51,10 @@
 }
 
 .Bold {
-  font-family: second-font;
-  font-weight: 700;
-  color: second-accent-color;
+  font-family: regular-font;
+  color: accent-color-light;
+  font-size: 1.3rem;
+  letter-spacing: 0.05rem;
 }
 
 .Additional {
@@ -67,26 +71,55 @@
   composes: Bold;
 }
 
+.CastReviewsLinks {
+  width: 8rem;
+  display: flex;
+  justify-content: space-between;
+}
+
 .Link {
-  color: #000000;
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  color: accent-color-light;
+  padding: 0.5rem 0.8rem;
+  transition: all 0.2s ease-in-out;
+  border: 1rem solid transparent;
+  border-image-slice: 1;
+  border-width: 0.2rem;
+}
+
+.Link:hover {
+  color: #d53a9d;
+  transform: scale(1.1);
+}
+
+.ActiveLink {
+  composes: Link;
+  color: accent-color-light;
+  border-image-source: linear-gradient(to left, #743ad5, #d53a9d);
+}
+
+.ActiveLink:hover {
+  color: accent-color-light;
+  transform: scale(1);
 }
 
 .Button {
-  font-family: second-font;
-  letter-spacing: 0.1rem;
-  font-weight: 700;
-  font-size: 14px;
-  color: rgba(255, 255, 255, 255);
-  text-align: center;
+  font-family: regular-font;
+  letter-spacing: 0.05rem;
+  background-image: linear-gradient(to left, #743ad5, #d53a9d);
   text-transform: uppercase;
+  font-size: 1.1rem;
+  text-align: center;
   width: 140px;
   height: 40px;
   background-color: accent-color;
   border-style: none;
   cursor: pointer;
-  border-radius: 0.1rem;
   transition: all 0.2s ease-in-out;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  color: accent-color-light;
 }
 
 .Button:hover {

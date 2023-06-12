@@ -1,3 +1,7 @@
+body {
+  background: linear-gradient(45deg, #202020, #090909, #202020);
+}
+
 *,
 *::after,
 *::before {
@@ -8,6 +12,10 @@
 
 ol,
 ul {
+  list-style: none;
+}
+
+li {
   list-style: none;
 }
 
@@ -22,15 +30,27 @@ img {
 }
 
 ::-webkit-scrollbar-track {
-  background: #ebebeb;
+  background: #202020;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #bbb;
-  border: 1px solid #aaa;
-  border-radius: 8px;
+  background: #090909;
+  border: 1rem solid transparent;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #aaa;
+  background: #743ad5;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: #000000;
+}
+
+.slick-list {
+  padding: 100px;
+}
+
+.slick-track {
+  width: 20rem;
 }

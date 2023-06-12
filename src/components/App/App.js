@@ -10,15 +10,17 @@ import styles from './App.module.css';
 
 const App = () => (
   <div className={styles.App}>
-    <Nav />
-    <Suspense fallback={<Loader />}>
-      <Switch>
-        {router.routes.map(route => (
-          <Route key={route.path} {...route} />
-        ))}
-        <Route component={NotFoundPage} />
-      </Switch>
-    </Suspense>
+    <div className={styles.Container}>
+      <Nav />
+      <Suspense fallback={<Loader />}>
+        <Switch>
+          {router.routes.map(route => (
+            <Route key={route.path} {...route} />
+          ))}
+          <Route component={NotFoundPage} />
+        </Switch>
+      </Suspense>
+    </div>
   </div>
 );
 

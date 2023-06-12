@@ -57,6 +57,7 @@ export default class MoviePage extends Component {
   render() {
     const path = getPathFromProps(this.props);
     const { movie } = this.state;
+    console.log(movie);
 
     return (
       <>

@@ -7,7 +7,7 @@
 }
 
 .Poster {
-  width: 17.5rem;
+  width: 17rem;
   height: 27rem;
   justify-self: center;
   object-fit: cover;
@@ -41,7 +41,7 @@
 }
 
 .HoverTitle {
-  width: 17.5rem;
+  width: 17rem;
   font-size: 2rem;
   align-self: center;
   text-align: center;

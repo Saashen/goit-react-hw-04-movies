@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link, withRouter } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 import * as basicLightbox from 'basiclightbox';
 
 import styles from './Movie.module.css';
@@ -55,8 +55,20 @@ const Movie = ({ movie, onReturn, location, match }) => {
             {movie.vote_average.toFixed(2)} / 10
           </li>
           <li className={styles.DescriptionPoint}>
+            <span className={styles.Bold}>Release Date: </span>
+            {movie.release_date.replaceAll('-', ' / ')}
+          </li>
+          <li className={styles.DescriptionPoint}>
             <span className={styles.Bold}>Genres: </span>
             {movie.genres.map(genre => genre.name).join(', ')}
+          </li>
+          <li className={styles.DescriptionPoint}>
+            <span className={styles.Bold}>Countries: </span>
+            {movie.production_countries.map(country => country.name).join(', ')}
+          </li>
+          <li className={styles.DescriptionPoint}>
+            <span className={styles.Bold}>Tagline: </span>
+            {movie.tagline}
           </li>
           <li className={styles.DescriptionPoint}>
             <span className={styles.Bold}>Overview: </span>
@@ -66,29 +78,30 @@ const Movie = ({ movie, onReturn, location, match }) => {
 
         <div className={styles.Additional}>
           <ul className={styles.CastReviewsLinks}>
-            <li className={styles.AddInfo}>Additional information:</li>
             <li>
-              <Link
+              <NavLink
                 className={styles.Link}
+                activeClassName={styles.ActiveLink}
                 to={{
                   pathname: isExactCastPath(),
                   state: { from: locationToGet },
                 }}
               >
                 Cast
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link
+              <NavLink
                 replace
                 className={styles.Link}
+                activeClassName={styles.ActiveLink}
                 to={{
                   pathname: isExactReviewsPath(),
                   state: { from: locationToGet },
                 }}
               >
                 Reviews
-              </Link>
+              </NavLink>
             </li>
           </ul>
           <button className={styles.Button} type="button" onClick={onReturn}>
@@ -113,7 +126,14 @@ Movie.propTypes = {
     title: PropTypes.string.isRequired,
     overview: PropTypes.string.isRequired,
     vote_average: PropTypes.number.isRequired,
+    release_date: PropTypes.string.isRequired,
+    tagline: PropTypes.string.isRequired,
     genres: PropTypes.arrayOf(
+      PropTypes.shape({
+        name: PropTypes.string.isRequired,
+      }),
+    ).isRequired,
+    production_countries: PropTypes.arrayOf(
       PropTypes.shape({
         name: PropTypes.string.isRequired,
       }),

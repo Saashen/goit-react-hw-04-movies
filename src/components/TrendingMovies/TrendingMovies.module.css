@@ -1,12 +1,16 @@
-@value dark-color, headers-font from '../../variables.module.css';
+@value accent-color-light, regular-font, headers-font from '../../variables.module.css';
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@900&display=swap');
 
 .Header {
   margin-top: 1.6rem;
   text-align: center;
-  font-family: headers-font;
+  font-family: 'Big Shoulders Display', cursive;
   text-transform: uppercase;
-  color: dark-color;
   font-size: 2rem;
+  letter-spacing: 0.1rem; /* background-image: linear-gradient(60deg, #f3ec78, #af4261); */
+  background-image: linear-gradient(to left, #743ad5, #d53a9d);
+  background-clip: text;
+  color: transparent;
 }
 
 .MoviesList {

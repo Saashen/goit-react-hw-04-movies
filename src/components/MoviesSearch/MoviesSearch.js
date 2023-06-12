@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Search } from 'react-feather';
 import styles from './MoviesSearch.module.css';
 
 export default class MoviesSearch extends Component {
@@ -33,7 +34,7 @@ export default class MoviesSearch extends Component {
           placeholder="Search..."
         />
         <button className={styles.SearchButton} type="submit">
-          <span className={styles.SearchButtonLabel}>Submit</span>
+          <Search color="white" size={20} />
         </button>
       </form>
     );
